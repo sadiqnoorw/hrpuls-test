@@ -37,9 +37,9 @@ If you don't have Docker, you can set up the project manually using the followin
    Clone the repository to your local machine:
 
    ```bash
-        git clone https://github.com/sadiqnoorw/innoscripta_aggregator_apis.git
+        git clone https://github.com/sadiqnoorw/hrpuls-test.git
 
-        cd innoscripta_aggregator_apis
+        cd hrpuls-test
     ```
 
 2. **Install Dependencies:**
