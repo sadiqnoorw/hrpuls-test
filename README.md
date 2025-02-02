@@ -51,10 +51,19 @@ This will install the required dependencies.
 
 3. **Set Up Environment Variables:**
 
-- Copy .env.example to .env:
+- Copy the .env.example file and update the database configurations:
 
 ```bash
     cp .env.example .env
+```
+
+```bash
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=your_database_name
+    DB_USERNAME=your_database_user
+    DB_PASSWORD=your_database_password
 ```
 
 ### Build and Run Docker Containers:
@@ -64,9 +73,28 @@ This will install the required dependencies.
 ```
 
 
-### Run Migrations:
+### Run Migrations and Seed:
 
 ```bash
-    ./vendor/bin/sail php artisan migrate
+    ./vendor/bin/sail php artisan migrate:refresh
+```
+
+```bash
+    ./vendor/bin/sail php artisan db:seed --class=EmployeeSeeder
 ```
 ***New you can access by*** http://localhost
+
+### Cronjob Task - Future Changes
+    - Running the Cronjob Manually Through the Command Line
+    Open your terminal and change to your project directory where your Laravel application is located like
+
+```bash
+cd /path/to/your/hrpuls-test
+```
+
+### Running a Specific Command:
+If you want to run a specific scheduled command (such as the apply-future-changes command) manually, you can run it like this:
+
+```bash
+./vendor/bin/sail php artisan employee:apply-future-changes
+```
