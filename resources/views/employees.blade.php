@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Management</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+@extends('app')
 
-</head>
-<body class="container mt-5">
+@section('content')
 
     <h1 class="mb-4">Employee List</h1>
     
@@ -23,6 +15,8 @@
             <tr>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Telephone</th>
+                <th>Address</th>
                 <th>Title</th>
                 <th>Actions</th>
             </tr>
@@ -32,6 +26,8 @@
             <tr>
                 <td>{{ $employee->name }}</td>
                 <td>{{ $employee->email }}</td>
+                <td>{{ $employee->telephone }}</td>
+                <td>{{ $employee->address }}</td>
                 <td>{{ $employee->title }}</td>
                 <td>
                     
@@ -52,5 +48,4 @@
 <div class="pagination">
     {{ $employees->links('pagination::bootstrap-4') }}
 </div>
-</body>
-</html>
+@endsection

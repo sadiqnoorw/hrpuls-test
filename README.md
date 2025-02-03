@@ -76,7 +76,7 @@ This will install the required dependencies.
 ### Run Migrations and Seed:
 
 ```bash
-    ./vendor/bin/sail php artisan migrate:refresh
+    ./vendor/bin/sail php artisan migrate
 ```
 
 ```bash
@@ -85,8 +85,8 @@ This will install the required dependencies.
 ***New you can access by*** http://localhost
 
 ### Cronjob Task - Future Changes
-    - Running the Cronjob Manually Through the Command Line
-    Open your terminal and change to your project directory where your Laravel application is located like
+Running the Cronjob Manually Through the Command Line
+Open your terminal and change to your project directory where your Laravel application is located like
 
 ```bash
 cd /path/to/your/hrpuls-test

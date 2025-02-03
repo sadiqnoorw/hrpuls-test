@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schedule Future Change</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+@extends('app')
 
-</head>
-<body class="container mt-5">
+@section('content')
 
     <h1 class="mb-4">Schedule Future Change for {{ $employee->name }}</h1>
 
@@ -39,7 +31,7 @@
         <!-- Effective Date Field -->
         <div class="mb-3">
             <label class="form-label">Effective Date <small class="text-muted">(When should the changes take effect?)</small></label>
-            <input type="date" name="effective_date" class="form-control @error('effective_date') is-invalid @enderror" required>
+            <input type="date" name="effective_date" min="<?= date('Y-m-d'); ?>" class="form-control @error('effective_date') is-invalid @enderror" required>
             @error('effective_date')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -63,7 +55,7 @@
         </div>
     
         <div class="mb-3">
-            <label class="form-label">Telephone (e.g. international format +12345678900)</label>
+            <label class="form-label">Telephone</label>
             <input type="text" name="telephone" value="{{ old('phone', $employee->telephone) }}" class="form-control @error('telephone') is-invalid @enderror" placeholder="Enter new telephone number if applicable">
             @error('telephone')
                 <div class="invalid-feedback">{{ $message }}</div>
@@ -90,8 +82,4 @@
         <button type="submit" class="btn btn-success">Schedule Change</button>
         <a href="{{ route('employees') }}" class="btn btn-secondary">Back</a>
     </form>
-    
-    
-
-</body>
-</html>
+@endsection
